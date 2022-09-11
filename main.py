@@ -9,7 +9,6 @@ textfile = textfile.lower()
 
 
 def calculate_frequencies():
-    # Here is a list of punctuations and uninteresting words you can use to process your text
     punctuations = ["!", "-", ";", ":", "\'", "\"", ".", ",", "?", "&", "(", ")"]
     uninteresting_words = ["the", "a", "to", "if", "is", "it", "of", "and", "or", "an", "as", "i", "me", "my",
                            "we", "our", "ours", "you", "your", "yours", "he", "she", "him", "his", "her", "hers", "its",
@@ -37,12 +36,12 @@ def calculate_frequencies():
             else:
                 word_array[word] += 1
 
-    # wordcloud
     cloud = wordcloud.WordCloud(max_font_size=50, max_words=100, background_color="white")
     cloud.generate_from_frequencies(word_array)
     return cloud.to_array()
 
 
+#image generation
 myimage = calculate_frequencies()
 plt.imshow(myimage, interpolation='nearest')
 plt.axis('off')
